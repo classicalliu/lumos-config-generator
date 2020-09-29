@@ -1,7 +1,6 @@
 package main
 
 import (
-	"bytes"
 	"context"
 	"encoding/json"
 	"io/ioutil"
@@ -98,13 +97,8 @@ func generate(url string, path string) {
 		},
 	}
 
-	j, _ := json.Marshal(config)
-	dst := &bytes.Buffer{}
-	src := []byte(j)
-	if err := json.Indent(dst, src, "", "  "); err != nil {
-		panic(err)
-	}
-	ioutil.WriteFile(path, dst.Bytes(), os.ModePerm)
+	j, _ := json.MarshalIndent(config, "", "  ")
+	ioutil.WriteFile(path, j, os.ModePerm)
 }
 
 func main() {
