@@ -7,7 +7,7 @@ import (
 	"log"
 	"os"
 
-	"github.com/ququzone/ckb-sdk-go/rpc"
+	"github.com/nervosnetwork/ckb-sdk-go/rpc"
 )
 
 type Script struct {
